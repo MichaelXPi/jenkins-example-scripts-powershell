@@ -3,6 +3,8 @@ pipeline {
   stages {
     stage('version') {
       steps {
+        echo '${EnterpriseId}'
+        echo '${PartyCode}'
         sh 'pwsh --version'
       }
     }
