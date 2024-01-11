@@ -3,4 +3,5 @@ param([String] $enterpriseId, [String] $partyCode, [string] $certString)
 echo "Hello World!"
 echo $enterpriseId
 echo $partyCode
-echo $certString
+$cert = [Text.Encoding]::Utf8.GetString([Convert]::FromBase64String($certString))
+echo $cert
