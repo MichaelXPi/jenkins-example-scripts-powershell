@@ -18,10 +18,10 @@ pipeline {
         }        
       }
     }
-    stage('hello') {
+    stage('setup-sso') {
       steps {
         script {
-          sh 'pwsh hello.ps1 "${EnterpriseId}" "${PartyCode}" "${Certificate}"'
+          sh 'pwsh setupsso.ps1 "${EnterpriseId}" "${PartyCode}" "${Certificate}"'
         }
       }
     }
