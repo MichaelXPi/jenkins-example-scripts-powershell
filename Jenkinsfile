@@ -7,7 +7,7 @@ pipeline {
   
   stages {
     stage('version') {
-      steps {
+      steps {  
         script {
           echo "${EnterpriseId}"
           echo "${PartyCode}"
@@ -20,8 +20,10 @@ pipeline {
     }
     stage('hello') {
       steps {
-        echo "${CertString}"
-        sh 'pwsh hello.ps1 "${EnterpriseId}" "${PartyCode}" "${CertString}"'
+        script {
+          echo "${CertString}"
+          sh 'pwsh hello.ps1 "${EnterpriseId}" "${PartyCode}" "${CertString}"'
+        }
       }
     }
   }
