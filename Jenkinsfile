@@ -12,7 +12,7 @@ pipeline {
           echo "${EnterpriseId}"
           echo "${PartyCode}"
           echo "${certString}"
-          certString = sh(script: "cat $Certificate | base64 -d", returnStdout: true).trim();
+          certString = sh(script: "echo $Certificate | base64 -d", returnStdout: true).trim();
           echo "${certString}"
           sh 'pwsh --version'
         }        
