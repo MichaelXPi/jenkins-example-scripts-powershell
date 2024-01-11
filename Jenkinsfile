@@ -21,7 +21,6 @@ pipeline {
     stage('hello') {
       steps {
         script {
-          echo "${CertString}"
           sh 'pwsh hello.ps1 "${EnterpriseId}" "${PartyCode}" "${Certificate}"'
         }
       }
