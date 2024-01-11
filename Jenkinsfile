@@ -3,8 +3,11 @@ pipeline {
   parameters {
     base64File description: 'Certificate File to Upload', name: 'Certificate'
   }
+  environment {
+    CERT = "=====No Cert====="
+  }
   
-  def certString = ''
+  def certString = env.CERT
   stages {
     stage('version') {
       steps {
