@@ -11,7 +11,7 @@ pipeline {
         echo "${EnterpriseId}"
         echo "${PartyCode}"
         echo "${certString}"
-        certString = "New Value"
+        certString = "New Value";
         echo "${certString}"
         sh 'pwsh --version'
       }
