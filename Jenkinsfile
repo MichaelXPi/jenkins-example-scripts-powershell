@@ -14,7 +14,7 @@ pipeline {
           echo "${certString}"
           certString = "New Value";
           echo "${certString}"
-          pwsh --version
+          sh 'pwsh --version'
         }        
       }
     }
