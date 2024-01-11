@@ -1,10 +1,14 @@
 pipeline {
   agent any
+  parameters {
+    base64File description: 'Certificate File to Upload', name: 'Certificate'
+  }
   stages {
     stage('version') {
       steps {
         echo "${EnterpriseId}"
         echo "${PartyCode}"
+        sh 'echo $Certificate | base64 -d'
         sh 'pwsh --version'
       }
     }
