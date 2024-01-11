@@ -8,12 +8,14 @@ pipeline {
   stages {
     stage('version') {
       steps {
-        echo "${EnterpriseId}"
-        echo "${PartyCode}"
-        echo "${certString}"
-        certString = "New Value";
-        echo "${certString}"
-        sh 'pwsh --version'
+        script {
+          echo "${EnterpriseId}"
+          echo "${PartyCode}"
+          echo "${certString}"
+          certString = "New Value";
+          echo "${certString}"
+          pwsh --version
+        }        
       }
     }
     stage('hello') {
