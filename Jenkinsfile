@@ -1,4 +1,4 @@
-def certString="No Cert"
+def CertString="No Cert"
 pipeline {
   agent any
   parameters {
@@ -11,16 +11,16 @@ pipeline {
         script {
           echo "${EnterpriseId}"
           echo "${PartyCode}"
-          echo "${certString}"
-          certString = sh(script: "echo $Certificate | base64 -d", returnStdout: true).trim();
-          echo "${certString}"
+          echo "${CertString}"
+          CertString = sh(script: "echo $Certificate | base64 -d", returnStdout: true).trim();
+          echo "${CertString}"
           sh 'pwsh --version'
         }        
       }
     }
     stage('hello') {
       steps {
-        sh 'pwsh hello.ps1 "${EnterpriseId}" "${PartyCode}"'
+        sh 'pwsh hello.ps1 "${EnterpriseId}" "${PartyCode}" "${CertString}"'
       }
     }
   }
