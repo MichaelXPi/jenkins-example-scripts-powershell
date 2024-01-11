@@ -1,13 +1,10 @@
+def certString="No Cert"
 pipeline {
   agent any
   parameters {
     base64File description: 'Certificate File to Upload', name: 'Certificate'
   }
-  environment {
-    CERT = "=====No Cert====="
-  }
   
-  def certString = env.CERT
   stages {
     stage('version') {
       steps {
